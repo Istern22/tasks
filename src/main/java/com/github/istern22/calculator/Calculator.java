@@ -1,18 +1,16 @@
 package com.github.istern22.calculator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Calculator {
 
-    public Calculator(String input) {
-        //TODO
-    }
+    private final char[] operations = {'/', '*', '-', '+'};
 
     public ArrayList<Character> toReversePolishNotation(String input) {
+        List<String> output = new ArrayList<String>(Arrays.asList(input.split("")));
+        System.out.println(output);
         return null;
-    }
-
-    public double calculate(ArrayList<Character> toCalculate) {
-        return 0;
     }
 }
