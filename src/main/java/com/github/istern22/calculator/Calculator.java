@@ -6,11 +6,31 @@ import java.util.List;
 
 public class Calculator {
 
-    private final char[] operations = {'/', '*', '-', '+'};
+    public boolean checkString(String element) {
+        try {
+            Double.parseDouble(element);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 
     public ArrayList<Character> toReversePolishNotation(String input) {
-        List<String> output = new ArrayList<String>(Arrays.asList(input.split("")));
-        System.out.println(output);
+        List<Double> operand = new ArrayList<>();
+        List<String> operations = new ArrayList<>();
+        List<String> array = new ArrayList<String>(Arrays.asList(input.split("")));
+        String number = "";
+        for (int i = 0; i < array.size(); i++) {
+            if (checkString(array.get(i))) {
+                if (checkString(array.get(i + 1))) {
+                    number = array.get(i) + array.get(i + 1);
+                }
+            operand.add(Double.parseDouble(number));
+            }
+            if (array.get(i) == "+") {
+                operations.add(array.get(i));
+            }
+        }
         return null;
     }
 }
