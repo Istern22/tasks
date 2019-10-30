@@ -15,22 +15,19 @@ public class Calculator {
         return true;
     }
 
-    public ArrayList<Character> toReversePolishNotation(String input) {
-        List<Double> operand = new ArrayList<>();
-        List<String> operations = new ArrayList<>();
-        List<String> array = new ArrayList<String>(Arrays.asList(input.split("")));
-        String number = "";
-        for (int i = 0; i < array.size(); i++) {
-            if (checkString(array.get(i))) {
-                if (checkString(array.get(i + 1))) {
-                    number = array.get(i) + array.get(i + 1);
-                }
-            operand.add(Double.parseDouble(number));
-            }
-            if (array.get(i) == "+") {
-                operations.add(array.get(i));
-            }
-        }
-        return null;
+    public List<Double> getOperands(String input) {
+
+        List<Double> operands = new ArrayList<>();
+
+        List<String> sourceArray = new ArrayList<String>(Arrays.asList(input.split("")));
+
+        return operands;
+    }
+
+    public double calculate(String input) {
+
+        Double result = null;
+
+        return result;
     }
 }
