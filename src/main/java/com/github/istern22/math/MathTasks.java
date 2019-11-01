@@ -119,7 +119,75 @@ public class MathTasks {
      * @param b
      * @return
      */
-    public double function1311(int a, int b) {
+    public double averageArithmetic(int a, int b) {
         return (double) (a + b) / 2;
+    }
+
+    public double averageGeometric(int a, int b) {
+        return (double) sqrt(a * b);
+    }
+
+    /**
+     * Известны объем и масса тела. Определить плотность материала этого тела.
+     * @param volume
+     * @param mass
+     * @return
+     */
+    public double density(double volume, double mass) {
+        return mass / volume;
+    }
+
+    /**
+     * Известны количество жителей в государстве и площадь его территории.
+     * Определить плотность населения в этом государстве.
+     * @param populationSize
+     * @param stateArea
+     * @return
+     */
+    public double populationDensity(int populationSize, double stateArea) {
+        return populationSize / stateArea;
+    }
+
+    /**
+     * Составить программу решения линейного уравнения ax + b = 0 (a != 0).
+     * @param a
+     * @param b
+     * @return
+     */
+    public double function134(double a, double b) {
+        if (a == 0) {
+            throw new ArithmeticException("a = 0");
+        }
+        return -b / a;
+    }
+
+    /**
+     * Даны катеты прямоугольного треугольника. Найти его гипотенузу.
+     * @param a
+     * @param b
+     * @return
+     */
+    public double hypotenuseTriangle(double a, double b) {
+        return sqrt(pow(a, 2) + pow(b, 2));
+    }
+
+    /**
+     * Найти площадь кольца по заданным внешнему и внутреннему радиусам.
+     * @param radius1
+     * @param radius2
+     * @return
+     */
+    public double ringArea(double radius1, double radius2) {
+        return circleArea(radius1) - circleArea(radius2);
+    }
+
+    /**
+     * Даны катеты прямоугольного треугольника. Найти его периметр.
+     * @param a
+     * @param b
+     * @return
+     */
+    public double perimeterTriangle(double a, double b) {
+        return a + b + hypotenuseTriangle(a, b);
     }
 }

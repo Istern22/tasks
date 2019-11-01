@@ -74,8 +74,56 @@ public class MathTasksTest {
     }
 
     @Test
-    public void whenFunction1311() {
+    public void whenAverageArithmetic() {
         MathTasks mathTasks = new MathTasks();
-        assertThat(mathTasks.function1311(4, 5), is(4.5));
+        assertThat(mathTasks.averageArithmetic(4, 5), is(4.5));
+    }
+
+    @Test
+    public void whenAverageGeomertic() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.averageGeometric(4, 5), is(4.47213595499958));
+    }
+
+    @Test
+    public void whenDensity() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.density(4, 2), is(0.5));
+    }
+
+    @Test
+    public void whenPopulationDenisty() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.populationDensity(100, 50), is(2.0));
+    }
+
+    @Test
+    public void whenFunction134() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function134(100, 50), is(-0.5));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void whenFunction134WhenException() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function134(0, 50), is("a = 0"));
+    }
+
+    @Test
+    public void whenHypotenuse() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.hypotenuseTriangle(4, 3), is(5.0));
+    }
+
+    @Test
+    public void whenRingArea() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.ringArea(4, 2), is(37.69911184307752));
+    }
+
+    @Test
+    public void whenPerimeter() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.perimeterTriangle(4, 3), is(12.0));
     }
 }
