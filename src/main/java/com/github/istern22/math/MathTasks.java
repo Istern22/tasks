@@ -190,4 +190,44 @@ public class MathTasks {
     public double perimeterTriangle(double a, double b) {
         return a + b + hypotenuseTriangle(a, b);
     }
+
+    public double perimeterTrapezoid(double h, double a, double b) {
+        return a + b + 2 * hypotenuseTriangle(h, abs((a - b) / 2));
+    }
+
+    public double function1391(double x, double y) {
+        return (x + (2 + y) / pow(x, 2)) / (y + 1 / sqrt(pow(x, 2) + 10));
+    }
+
+    public double function1392(double x, double y) {
+        return 2.8 * sin(x) + abs(y);
+    }
+
+    public double function145Sum(double x, double y) {
+        return x + y;
+    }
+
+    public double function145Difference(double x, double y) {
+        return x - y;
+    }
+
+    public double function145Multiplication(double x, double y) {
+        return x * y;
+    }
+
+    public double function145Division(double x, double y) {
+        return x / y;
+    }
+
+    public double parallelepipedVolume(double a, double b, double c) {
+        return a * b * c;
+    }
+
+    public double parallelepipedSideArea(double a, double b, double c) {
+        return 2 * (a * b + a * c);
+    }
+
+    public double distanceBetweenPoints(double x1, double y1, double x2, double y2) {
+        return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    }
 }

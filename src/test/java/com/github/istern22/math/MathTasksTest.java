@@ -126,4 +126,58 @@ public class MathTasksTest {
         MathTasks mathTasks = new MathTasks();
         assertThat(mathTasks.perimeterTriangle(4, 3), is(12.0));
     }
+
+    @Test
+    public void whenFunction1391() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function1391(4, 3), is(1.3492938984876872));
+    }
+
+    @Test
+    public void whenFunction1392() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function1392(4, 3), is(0.8809530131378014));
+    }
+
+    @Test
+    public void whenFunction145Sum() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function145Sum(4, 3), is(7.0));
+    }
+
+    @Test
+    public void whenFunction145Difference() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function145Difference(4, 3), is(1.0));
+    }
+
+    @Test
+    public void whenFunction145Multiple() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function145Multiplication(4, 3), is(12.0));
+    }
+
+    @Test
+    public void whenFunction145Division() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.function145Division(4, 3), is(1.3333333333333333));
+    }
+
+    @Test
+    public void whenParallelepipedVolume() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.parallelepipedVolume(4, 3, 1), is(12.0));
+    }
+
+    @Test
+    public void whenParallelepipedSideArea() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.parallelepipedSideArea(4, 3, 1), is(32.0));
+    }
+
+    @Test
+    public void whenDistanceBetweenPoints() {
+        MathTasks mathTasks = new MathTasks();
+        assertThat(mathTasks.distanceBetweenPoints(1, 2, 3, 4), is(2.8284271247461903));
+    }
 }
