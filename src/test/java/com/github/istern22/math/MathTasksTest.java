@@ -206,8 +206,7 @@ public class MathTasksTest {
     }
 
     @Test
-    public void whenConvertIntoCelcius() {
-        assertThat(mathTasks.convertInСelsius(450), is(232.22222222222223));
+    public void whenConvertIntoCelsius() {
+        assertThat(mathTasks.convertInCelsius(450), is(232.22222222222223));
     }
-
 }

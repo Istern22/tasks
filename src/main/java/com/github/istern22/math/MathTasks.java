@@ -361,7 +361,42 @@ public class MathTasks {
      * @param f
      * @return
      */
-    public double convertInСelsius(double f) {
+    public double convertInCelsius(double f) {
         return (f - 32) / 1.8;
+    }
+
+    /**
+     * Составить программу обмена значениями двух переменных величин.
+     * @param a
+     * @param b
+     */
+    public void changeTwoValues(double a, double b) {
+        a = a + b;
+        b = a - b;
+        a = a - b;
+    }
+
+    /**
+     * Составить программу обмена значениями трех переменных величин а, b, c по
+     * следующей схеме:
+     * а) b присвоить значение c, а присвоить значение b, с присвоить значение а;
+     * б) b присвоить значение а, с присвоить значение b, а присвоить значение с.
+     * @param a
+     * @param b
+     * @param c
+     */
+
+    public void changeThreeValues1(double a, double b, double c) {
+        b = a + b + c;
+        a = b - a - c;
+        c = b - a - c;
+        b = b - a - c;
+    }
+
+    public void changeThreeValues2(double a, double b, double c) {
+        a = a + b + c;
+        b = a - b - c;
+        c = a - b - c;
+        a = a - b - c;
     }
 }
