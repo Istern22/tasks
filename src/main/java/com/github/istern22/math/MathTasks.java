@@ -191,10 +191,25 @@ public class MathTasks {
         return a + b + hypotenuseTriangle(a, b);
     }
 
+    /**
+     * Даны основания и высота равнобедренной трапеции. Найти ее периметр.
+     * @param h
+     * @param a
+     * @param b
+     * @return
+     */
     public double perimeterTrapezoid(double h, double a, double b) {
         return a + b + 2 * hypotenuseTriangle(h, abs((a - b) / 2));
     }
 
+    /**
+     * Составить программу вычисления значений функций
+     * (x + (2 + y) / pow(x, 2)) / (y + 1 / sqrt(pow(x, 2) + 10))
+     * 2.8 * sin(x) + abs(y)
+     * @param x
+     * @param y
+     * @return
+     */
     public double function1391(double x, double y) {
         return (x + (2 + y) / pow(x, 2)) / (y + 1 / sqrt(pow(x, 2) + 10));
     }
@@ -203,6 +218,13 @@ public class MathTasks {
         return 2.8 * sin(x) + abs(y);
     }
 
+    /**
+     * Даны два числа. Найти их сумму, разность, произведение, а также частное от
+     * деления первого числа на второе.
+     * @param x
+     * @param y
+     * @return
+     */
     public double function145Sum(double x, double y) {
         return x + y;
     }
@@ -219,6 +241,14 @@ public class MathTasks {
         return x / y;
     }
 
+    /**
+     * Даны длины сторон прямоугольного параллелепипеда.
+     * Найти его объем и площадь боковой поверхности.
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
     public double parallelepipedVolume(double a, double b, double c) {
         return a * b * c;
     }
@@ -227,7 +257,111 @@ public class MathTasks {
         return 2 * (a * b + a * c);
     }
 
+    /**
+     * Известны координаты на плоскости двух точек. Составить программу вычис-
+     * ления расстояния между ними.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @return
+     */
     public double distanceBetweenPoints(double x1, double y1, double x2, double y2) {
         return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    }
+
+    /**
+     * Известна стоимость 1 кг конфет, печенья и яблок.
+     * Найти стоимость всей покупки, если купили x кг конфет, у кг печенья и z кг яблок.
+     * @param cost
+     * @param x
+     * @param y
+     * @param z
+     */
+    public double function152(double x, double y, double z, double cost) {
+        return cost * (x + y + z);
+    }
+
+    /**
+     * Известна стоимость монитора, системного блока, клавиатуры и мыши.
+     * Сколько будут стоить 3 компьютера из этих элементов? N компьютеров?
+     * @param cost
+     * @return
+     */
+    public double function1531(double cost) {
+        return 3 * cost;
+    }
+
+    public double function1532(double cost, int computers) {
+        return computers * cost;
+    }
+
+    /**
+     * Возраст Тани — X лет, а возраст Мити — Y лет. Найти их средний возраст, а
+     * также определить, на сколько отличается возраст каждого ребенка
+     * от среднего значения.
+     * @param x
+     * @param y
+     * @return
+     */
+    public double averageAge(double x, double y) {
+        return (x + y) / 2;
+    }
+
+    public double differenceFromAverage(double x, double y) {
+        return abs(averageAge(x, y) - x);
+    }
+
+    /**
+     * Два автомобиля едут навстречу друг другу с постоянными скоростями V1 и
+     * V2 км/час. Определить, через какое время автомобили встретятся, если рас-
+     * стояние между ними было S км.
+     * @param v1
+     * @param v2
+     * @param s
+     * @return
+     */
+    public double function155(double v1, double v2, double s) {
+        return s / (v1 + v2);
+    }
+
+    /**
+     * Два автомобиля едут друг за другом с постоянными скоростями V1 и
+     * V2 км/час ( V1 V2 ). Определить, какое расстояние будет между ними через
+     * 30 минут после того, как первый автомобиль опередил второй на S км.
+     * @param v1
+     * @param v2
+     * @param s
+     * @return
+     */
+    public double function156(double v1, double v2, double s) {
+        return 0.5 * v1 + s - 0.5 * v2;
+    }
+
+    /**
+     * Известно значение температуры по шкале Цельсия. Найти соответствующее
+     * значение температуры по шкале:
+     * а) Фаренгейта;
+     * б) Кельвина.
+     * @param c
+     * @return
+     */
+    public double convertIntoFahrenheit(double c) {
+        return c * 1.8 + 32;
+    }
+
+    public double convertIntoKelvin(double c) {
+        return c + 273.15;
+    }
+
+    /**
+     * У американского писателя-фантаста Рэя Бредбери есть роман "450 градусов
+     * по Фаренгейту". Какой температуре по шкале Цельсия соответствует указан-
+     * ное в названии значение?
+     * @param f
+     * @return
+     */
+    public double convertInСelsius(double f) {
+        return (f - 32) / 1.8;
     }
 }
