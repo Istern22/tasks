@@ -1,4 +1,4 @@
-package com.github.istern22.math;
+package com.github.istern22.zlatopolskiy;
 
 import org.junit.Test;
 
