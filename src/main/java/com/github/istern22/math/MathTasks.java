@@ -399,4 +399,93 @@ public class MathTasks {
         c = a - b - c;
         a = a - b - c;
     }
+
+    /**
+     * Дано вещественное число а.
+     * Пользуясь только операцией умножения, получить:
+     * а4 за 2 операции
+     * а6 за 3 операции
+     * а7 за 4 операции
+     * а8 за 3 операции
+     * а9 за 4 операции
+     * а10 за 4 операции
+     * а13 за 5 операций
+     * а15 за 5 операций
+     * а21 за 6 операций
+     * а28 за 6 операций
+     * а64 за 6 операций
+     * @param a
+     */
+    public void degreesOfA(double a) {
+        double a2 = a * a;
+        double a4 = a2 * a2;
+        double a6 = a2 * a4;
+        double a7 = a6 * a;
+        double a8 = a4 * a4;
+        double a9 = a8 * a;
+        double a10 = a8 * a2;
+        double a13 = a6 * a7;
+        double a15 = a7 * a8;
+        double a21 = a15 * a6;
+        double a28 = a21 * a7;
+        double a64 = a28 * a28 * a8;
+
+    }
+
+    /**
+     * Дано вещественное число a.
+     * Пользуясь только операцией умножения, получить
+     * а3 и a10 за 4 операции
+     * а4 и а20 за 5 операций
+     * а5 и а13 за 5 операций
+     * а5 и а19 за 5 операций
+     * а2, а5, а17 за 6 операций
+     * а4, а12, а28 за 6 операций
+     * @param a
+     */
+    public void degreesOfA10(double a) {
+        double a2 = a * a;
+        double a3 = a2 * a;
+        double a5 = a3 * a2;
+        double a10 = a5 * a5;
+    }
+
+    public void degreesOfA20(double a) {
+        double a2 = a * a;
+        double a4 = a2 * a2;
+        double a10 = a4 * a4 * a2;
+        double a20 = a10 * a10;
+    }
+
+    public void degreesOfA13(double a) {
+        double a2 = a * a;
+        double a4 = a2 * a2;
+        double a5 = a4 * a;
+        double a8 = a4 * a4;
+        double a13 = a5 * a8;
+    }
+
+    public void degreesOfA19(double a) {
+        double a2 = a * a;
+        double a4 = a2 * a2;
+        double a5 = a4 * a;
+        double a10 = a5 * a5;
+        double a19 = a10 * a4 * a5;
+    }
+
+    public void degreesOfA17(double a) {
+        double a2 = a * a;
+        double a4 = a2 * a2;
+        double a5 = a4 * a;
+        double a10 = a5 * a5;
+        double a17 = a10 * a2 * a5;
+    }
+
+    public void degreesOfA28(double a) {
+        double a2 = a * a;
+        double a4 = a2 * a2;
+        double a8 = a4 * a4;
+        double a12 = a8 * a4;
+        double a28 = a12 * a12 * a4;
+    }
 }
