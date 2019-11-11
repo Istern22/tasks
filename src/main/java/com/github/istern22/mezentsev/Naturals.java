@@ -5,14 +5,12 @@ import java.util.List;
 
 public class Naturals {
 
-    Naturals naturals = new Naturals();
-
     /**
      * Проверить, является ли натуральное число числом Фибоначчи.
      * @param number
      * @return
      */
-    public boolean fibonacci(int number) {
+    public static boolean fibonacci(int number) {
         boolean result = false;
         int previousFib = 0;
         int currentFib = 1;
@@ -32,7 +30,7 @@ public class Naturals {
      * @param number
      * @return
      */
-    public boolean differentDigits(int number) {
+    public static boolean differentDigits(int number) {
         boolean result = true;
         char[] digits = String.valueOf(number).toCharArray();
         for (int i = 0; i < digits.length; i++) {
@@ -53,10 +51,10 @@ public class Naturals {
      * @param denominator
      * @return
      */
-    public boolean irreducibleFraction(int numerator, int denominator) {
+    public static boolean irreducibleFraction(int numerator, int denominator) {
         boolean result = true;
-        for (int i : naturals.dividers(numerator)) {
-            for (int j : naturals.dividers(denominator)) {
+        for (int i : dividers(numerator)) {
+            for (int j : dividers(denominator)) {
                 if (i == j) {
                     result = false;
                     break;
@@ -66,7 +64,7 @@ public class Naturals {
         return result;
     }
 
-    public List<Integer> dividers(int number) {
+    public static List<Integer> dividers(int number) {
         List<Integer> dividers = new ArrayList<>();
         int divider = 2;
         while (number >= divider) {
@@ -85,7 +83,7 @@ public class Naturals {
      * @param number
      * @return
      */
-    public boolean isPrimeNatural(int number) {
-       return naturals.dividers(number).size() == 1;
+    public static boolean isPrimeNatural(int number) {
+       return dividers(number).size() == 1;
     }
 }

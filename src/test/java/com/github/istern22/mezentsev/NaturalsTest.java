@@ -4,12 +4,11 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.BaseStream;
 
 import static  org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class NaturalTest {
+public class NaturalsTest {
     Naturals natural = new Naturals();
 
     @Test
