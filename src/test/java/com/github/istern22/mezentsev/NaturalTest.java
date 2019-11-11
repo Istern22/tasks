@@ -33,7 +33,42 @@ public class NaturalTest {
     }
 
     @Test
-    public void whenNoDividers() {
+    public void whenTwoDividers() {
         assertThat(natural.dividers(6), is(new ArrayList<Integer>(Arrays.asList(2, 3))));
+    }
+
+    @Test
+    public void whenFourDividers() {
+        assertThat(natural.dividers(132), is(new ArrayList<Integer>(Arrays.asList(2, 2, 3, 11))));
+    }
+
+    @Test
+    public void whenOneDividers() {
+        assertThat(natural.dividers(7), is(new ArrayList<Integer>(Arrays.asList(7))));
+    }
+
+    @Test
+    public void whenFractionIsReducible() {
+        assertThat(natural.irreducibleFraction(5, 25), is(false));
+    }
+
+    @Test
+    public void whenFractionIsReducibleTwo() {
+        assertThat(natural.irreducibleFraction(132, 11), is(false));
+    }
+
+    @Test
+    public void whenFractionIsIrreducible() {
+        assertThat(natural.irreducibleFraction(5, 17), is(true));
+    }
+
+    @Test
+    public void whenNumberIsPrime() {
+        assertThat(natural.isPrimeNatural(17), is(true));
+    }
+
+    @Test
+    public void whenNumberIsNotPrime() {
+        assertThat(natural.isPrimeNatural(132), is(false));
     }
 }

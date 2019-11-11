@@ -1,10 +1,11 @@
 package com.github.istern22.mezentsev;
 
-import javax.print.attribute.standard.PresentationDirection;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Naturals {
+
+    Naturals naturals = new Naturals();
 
     /**
      * Проверить, является ли натуральное число числом Фибоначчи.
@@ -53,20 +54,38 @@ public class Naturals {
      * @return
      */
     public boolean irreducibleFraction(int numerator, int denominator) {
-        boolean result = false;
+        boolean result = true;
+        for (int i : naturals.dividers(numerator)) {
+            for (int j : naturals.dividers(denominator)) {
+                if (i == j) {
+                    result = false;
+                    break;
+                }
+            }
+        }
         return result;
     }
 
     public List<Integer> dividers(int number) {
         List<Integer> dividers = new ArrayList<>();
-
-        for (int i = 2; i <= number; i++) {
-            if (number % i == 0) {
-                dividers.add(i);
-                number = number / i;
-                dividers(number);
+        int divider = 2;
+        while (number >= divider) {
+            if (number % divider == 0) {
+                dividers.add(divider);
+                number = number / divider;
+            } else {
+                divider++;
             }
         }
         return dividers;
+    }
+
+    /**
+     * Проверить, является ли данное натуральное число простым.
+     * @param number
+     * @return
+     */
+    public boolean isPrimeNatural(int number) {
+       return naturals.dividers(number).size() == 1;
     }
 }
