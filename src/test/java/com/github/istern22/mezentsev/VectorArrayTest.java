@@ -65,4 +65,24 @@ public class VectorArrayTest {
     public void whenFindIntegersBetweenMinAndMaxTwo() {
         assertThat(numbersFromInterval(new int[] {1, 0, 3, 10, 8, 7}), is(new ArrayList<Integer>(Arrays.asList(2, 4, 5, 6, 9))));
     }
-}
+
+    @Test
+    public void whenNotSubsequence() {
+        assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {3, 0}), is(false));
+    }
+
+    @Test
+    public void whenSubsequence() {
+        assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {3, 10}), is(true));
+    }
+
+    @Test
+    public void whenSubsequenceTwo() {
+        assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {3}), is(true));
+    }
+
+    @Test
+    public void whenSubsequenceThree() {
+        assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {1, 0, 3, 10, 8, 7}), is(true));
+    }
+ }
