@@ -1,6 +1,7 @@
 package com.github.istern22.mezentsev;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static com.github.istern22.mezentsev.Naturals.isPrimeNatural;
@@ -153,15 +154,19 @@ public class VectorArray {
     }
 
     public static List<Double> positiveSubSequence(double[] array) {
-        int sizeSubSequence = 0;
+        List<Double> current = new ArrayList<>();
+        List<Double> maxArray = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
             if (array[i] > 0) {
-                sizeSubSequence++;
-                while (array[i + 1] > 0) {
-                    sizeSubSequence++;
+                current.add(array[i]);
+            } else {
+                if (current.size() > maxArray.size()) {
+                    maxArray.clear();
+                    maxArray.addAll(current);
                 }
             }
+            current.clear();
         }
-        return null;
+        return maxArray;
     }
 }

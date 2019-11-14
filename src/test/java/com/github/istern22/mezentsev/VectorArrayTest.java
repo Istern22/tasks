@@ -67,22 +67,27 @@ public class VectorArrayTest {
     }
 
     @Test
-    public void whenNotSubsequence() {
+    public void whenNotSubSequence() {
         assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {3, 0}), is(false));
     }
 
     @Test
-    public void whenSubsequence() {
+    public void whenSubSequence() {
         assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {3, 10}), is(true));
     }
 
     @Test
-    public void whenSubsequenceTwo() {
+    public void whenSubSequenceTwo() {
         assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {3}), is(true));
     }
 
     @Test
-    public void whenSubsequenceThree() {
+    public void whenSubSequenceThree() {
         assertThat(subSequence(new int[] {1, 0, 3, 10, 8, 7}, new int[] {1, 0, 3, 10, 8, 7}), is(true));
+    }
+
+    @Test
+    public void whenSubSequencePositiveOne() {
+        assertThat(positiveSubSequence(new double[] {1, -1, 3, -10, 8, 7}), is(new ArrayList(Arrays.asList())));
     }
  }
