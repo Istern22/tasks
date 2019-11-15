@@ -88,6 +88,41 @@ public class VectorArrayTest {
 
     @Test
     public void whenSubSequencePositiveOne() {
-        assertThat(positiveSubSequence(new double[] {1, -1, 3, -10, 8, 7}), is(new ArrayList(Arrays.asList())));
+        assertThat(positiveSubSequence(new double[] {1, -1, 3, -10, 8, 7, -50}), is(new ArrayList(Arrays.asList(8.0, 7.0))));
     }
- }
+
+    @Test
+    public void whenSubSequencePositiveTwo() {
+        assertThat(positiveSubSequence(new double[] {8, 7}), is(new ArrayList(Arrays.asList(8.0, 7.0))));
+    }
+
+    @Test
+    public void whenSubSequencePositiveThree() {
+        assertThat(positiveSubSequence(new double[] {-8, -7}), is(new ArrayList(Arrays.asList())));
+    }
+
+    @Test
+    public void whenTreeDuplicates() {
+        assertThat(duplicates(new double[] {-8, -7, -8, -8, -7}), is(new ArrayList(Arrays.asList(-8.0, -7.0))));
+    }
+
+    @Test
+    public void whenNoDuplicates() {
+        assertThat(duplicates(new double[] {-8, -7, 0, 5, 8}), is(new ArrayList(Arrays.asList())));
+    }
+
+    @Test
+    public void whenTwoDuplicates() {
+        assertThat(duplicates(new double[] {8, 8, 0, 5, 8, 0}), is(new ArrayList(Arrays.asList(8.0, 0.0))));
+    }
+
+    @Test
+    public void whenNumbersOfAverages() {
+        assertThat(numbersBelowAverage(8, new double[] {8, 8, 8}), is(3));
+    }
+
+    @Test
+    public void whenNumbersOfAveragesTwo() {
+        assertThat(numbersBelowAverage(1, new double[] {0, 1, 2}), is(2));
+    }
+}

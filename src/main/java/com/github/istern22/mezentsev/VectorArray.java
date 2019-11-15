@@ -153,20 +153,82 @@ public class VectorArray {
         return result;
     }
 
+    /**
+     * Дана последовательность чисел a1, a2, ..., an.
+     * Найти положительную подпоследовательность наибольшей длины.
+     * @param array
+     * @return
+     */
     public static List<Double> positiveSubSequence(double[] array) {
         List<Double> current = new ArrayList<>();
         List<Double> maxArray = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > 0) {
+            if (array[i] > 0 && i != array.length - 1) {
                 current.add(array[i]);
-            } else {
-                if (current.size() > maxArray.size()) {
-                    maxArray.clear();
-                    maxArray.addAll(current);
+            } else if (array[i] > 0 && i == array.length - 1) {
+                current.add(array[i]);
+                if (current.size() >= maxArray.size()) {
+                    maxArray = current;
+                    current = new ArrayList<>();
                 }
+            } else if (current.size() >= maxArray.size()) {
+                maxArray = current;
+                current = new ArrayList<>();
+            } else if (current.size() < maxArray.size()) {
+                current.clear();
             }
-            current.clear();
         }
         return maxArray;
+    }
+
+    /**
+     * Дана последовательность чисел a1, a2, ..., an.
+     * Выяснить, сколько чисел и какие входят в последовательность более чем по одному разу.
+     * @param array
+     * @return
+     */
+    public static List<Double> duplicates(double[] array) {
+        List<Double> duplicates = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] == array[j] && !duplicates.contains(array[i])) {
+                    duplicates.add(array[i]);
+                }
+            }
+        }
+        return duplicates;
+    }
+
+    public static int duplicatesAmount(double[] array) {
+        return duplicates(array).size();
+    }
+
+    /**
+     * Дана последовательность чисел a1, a2, ..., an.
+     * Определить число элементов этой последовательности, не превыщающих
+     * среднего арифметического положительных элементов.
+     * @param array
+     * @return
+     */
+    public static double averageOfPositive(double[] array) {
+        double sum = 0;
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 0) {
+                sum += array[i];
+                count++;
+            }
+        }
+        return sum / count;
+    }
+
+    public static int numbersBelowAverage(double average, double[] array) {
+        int numbers = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] <= average) {
+                numbers++;
+            }
+        }
+        return numbers;
     }
 }
