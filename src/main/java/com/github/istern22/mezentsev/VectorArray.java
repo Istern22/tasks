@@ -163,19 +163,17 @@ public class VectorArray {
         List<Double> current = new ArrayList<>();
         List<Double> maxArray = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > 0 && i != array.length - 1) {
+            if (array[i] > 0) {
                 current.add(array[i]);
-            } else if (array[i] > 0 && i == array.length - 1) {
-                current.add(array[i]);
+                if (i < array.length - 1) {
+                    continue;
+                }
+            }
+            if (array[i] <= 0 || i == array.length - 1) {
                 if (current.size() >= maxArray.size()) {
                     maxArray = current;
-                    current = new ArrayList<>();
                 }
-            } else if (current.size() >= maxArray.size()) {
-                maxArray = current;
                 current = new ArrayList<>();
-            } else if (current.size() < maxArray.size()) {
-                current.clear();
             }
         }
         return maxArray;

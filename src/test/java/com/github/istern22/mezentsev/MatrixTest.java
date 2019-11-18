@@ -45,7 +45,13 @@ public class MatrixTest {
 
     @Test
     public void whenLatinMatrix() {
-        int[][] array = {{16, 3, 2, 13}, {5, 10, 11, 8}, {9, 6, 7, 12}, {4, 15, 0, 1}};
-        assertThat(magicMatrix(array), is(false));
+        int[][] array = {{1, 2, 3}, {2, 3, 1}, {3, 1, 2}};
+        assertThat(latinMatrix(array), is(true));
+    }
+
+    @Test
+    public void whenNoLatinMatrix() {
+        int[][] array = {{1, 2, 3}, {2, 3, 1}, {3, 1, 1}};
+        assertThat(latinMatrix(array), is(false));
     }
 }
