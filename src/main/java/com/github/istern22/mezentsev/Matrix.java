@@ -111,12 +111,10 @@ public class Matrix {
         boolean result = true;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
-                if (array[i][j] < 10 && array[i][j] > 0) {
-                    for (int n = j + 1; n < array.length; n++) {
-                        if (array[i][j] == array[i][n] || array[j][i] == array[n][i]) {
-                            result = false;
-                            break;
-                        }
+                for (int n = j + 1; n < array.length; n++) {
+                    if (array[i][j] == array[i][n] || array[j][i] == array[n][i]) {
+                        result = false;
+                        break;
                     }
                 }
             }
