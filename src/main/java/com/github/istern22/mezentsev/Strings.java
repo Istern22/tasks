@@ -56,6 +56,12 @@ public class Strings {
         return (double) sumLength / words.length;
     }
 
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга
+     * одним пробелом. Удалить самое длинное слово.
+     * @param string
+     * @return
+     */
     public static String deleteMaxWord(String string) {
         String result = "";
         List<String> words = new ArrayList<>(Arrays.asList(string.split(" ")));
@@ -67,5 +73,17 @@ public class Strings {
             }
         }
         return result;
+    }
+
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга
+     * одним пробелом. Удалить самое длинное слово.
+     * @param string
+     * @return
+     */
+    public static String deleteMinWord(String string) {
+        String result = string.replace(minString(string),"");
+        String result1 = result.replace("  ", " ");
+        return result1.trim();
     }
 }

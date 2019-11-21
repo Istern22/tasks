@@ -66,4 +66,19 @@ public class StringsTest {
     public void whenDeleteMaxWordThree() {
         assertThat(deleteMaxWord("fast go c o d e"), is("go c o d e"));
     }
+
+    @Test
+    public void whenDeleteMinWord() {
+        assertThat(deleteMinWord("go code fast immediately"), is("code fast immediately"));
+    }
+
+    @Test
+    public void whenDeleteMinWordTwo() {
+        assertThat(deleteMinWord("go"), is(""));
+    }
+
+    @Test
+    public void whenDeleteMinWordThree() {
+        assertThat(deleteMinWord("fast go c o d e"), is("fast go o d e"));
+    }
 }
