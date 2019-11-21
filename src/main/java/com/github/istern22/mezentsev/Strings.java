@@ -10,6 +10,7 @@ public class Strings {
     /**
      * Дана строка символов. Слова в строке отделяются друг от друга
      * одним пробелом. Вывести самое длинное слово.
+     *
      * @param string
      * @return
      */
@@ -27,6 +28,7 @@ public class Strings {
     /**
      * Дана строка символов. Слова в строке отделяются друг от друга
      * одним пробелом. Вывести самое короткое слово.
+     *
      * @param string
      * @return
      */
@@ -44,6 +46,7 @@ public class Strings {
     /**
      * Дана строка символов. Слова в строке отделяются друг от друга
      * одним пробелом. Написать программу, вычисляющую среднюю длину слов в строке.
+     *
      * @param string
      * @return
      */
@@ -58,32 +61,87 @@ public class Strings {
 
     /**
      * Дана строка символов. Слова в строке отделяются друг от друга
-     * одним пробелом. Удалить самое длинное слово.
+     * одним пробелом. Удалить самое длинное слово. Удалить самое короткое слово.
+     *
      * @param string
      * @return
      */
-    public static String deleteMaxWord(String string) {
-        String result = "";
-        List<String> words = new ArrayList<>(Arrays.asList(string.split(" ")));
-        words.remove(maxString(string));
-        for (int i = 0; i < words.size(); i++) {
-            result += words.get(i);
-            if (i != words.size() - 1) {
-                result += " ";
-            }
-        }
+
+    public static String deleteWord(String string, String word) {
+        String result = string.replace(word, "").replace("  ", " ").trim();
         return result;
     }
 
+    public static String deleteMaxWord(String string) {
+        return deleteWord(string, maxString(string));
+    }
+
+    public static String deleteMinWord(String string) {
+        return deleteWord(string, minString(string));
+    }
+
     /**
-     * Дана строка символов. Слова в строке отделяются друг от друга
-     * одним пробелом. Удалить самое длинное слово.
+     * Дана строка символов. Слова в строке отделяются друг от друга одним пробелом.
+     * Заменить в строке одно заданное слово(если оно есть) другим.
+     *
+     * @param string
+     * @param word1
+     * @param word2
+     * @return
+     */
+    public static String replaceWord(String string, String word1, String word2) {
+        string = string.replace(word1, word2);
+        return string;
+    }
+
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга любым количеством пробелов.
+     * Преобразовать строку таким образом, чтобы слова отделялись строго одним пробелом.
+     *
      * @param string
      * @return
      */
-    public static String deleteMinWord(String string) {
-        String result = string.replace(minString(string),"");
-        String result1 = result.replace("  ", " ");
-        return result1.trim();
+    public static String oneSpace(String string) {
+        string = string.replaceAll(" +", " ");
+        return string;
+    }
+
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга одним пробелом.
+     * Поменять местами самое длинное и самое короткое слово.
+     *
+     * @param string
+     * @return
+     */
+    public static String replaceMinMax(String string) {
+        String min = minString(string);
+        String max = maxString(string);
+        string = string.replace(min, "min").replace(max, "max");
+        string = string.replace("min", max).replace("max", min);
+        return string;
+    }
+
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга пробелами или запятыми.
+     * Посчитать кол-во слов, длина которых больше заданного числа.
+     * Посчитать кол-во слов, длина которых меньше заданного числа.
+     *
+     * @param string
+     * @param length
+     * @return
+     */
+    public static int writeWordsToLengthNumber(String string, int length, boolean sign) {
+        String[] words = string.split("[ ,]");
+        int count = 0;
+        for (int i = 0; i < words.length; i++) {
+            if (sign && words[i].length() > length) {
+                count++;
+            } else {
+                if (!sign && words[i].length() < length) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 }

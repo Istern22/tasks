@@ -81,4 +81,44 @@ public class StringsTest {
     public void whenDeleteMinWordThree() {
         assertThat(deleteMinWord("fast go c o d e"), is("fast go o d e"));
     }
+
+    @Test
+    public void whenReplaceWord() {
+        assertThat(replaceWord("go code fast immediately", "go", "fly"), is("fly code fast immediately"));
+    }
+
+    @Test
+    public void whenReplaceWordTwo() {
+        assertThat(replaceWord("go", "one", "two"), is("go"));
+    }
+
+    @Test
+    public void whenReplaceWordThree() {
+        assertThat(replaceWord("fast go c o d e", "fast", "don't"), is("don't go c o d e"));
+    }
+
+    @Test
+    public void whenOneSpace() {
+        assertThat(oneSpace("fast    go c  o d  e"), is("fast go c o d e"));
+    }
+
+    @Test
+    public void whenReplaceMinMax() {
+        assertThat(replaceMinMax("go code fast immediately"), is("immediately code fast go"));
+    }
+
+    @Test
+    public void whenWordsOfLengthMoreNumber() {
+        assertThat(wordsToLengthNumber("go code fast immediately", 4, true), is(1));
+    }
+
+    @Test
+    public void whenWordsOfLengthMoreNumberTwo() {
+        assertThat(wordsToLengthNumber("go code fast immediately", 1, true), is(4));
+    }
+
+    @Test
+    public void whenWordsOfLengthLessNumberTwo() {
+        assertThat(wordsToLengthNumber("go code fast immediately", 5, false), is(3));
+    }
 }
