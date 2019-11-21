@@ -130,7 +130,7 @@ public class Strings {
      * @param length
      * @return
      */
-    public static int writeWordsToLengthNumber(String string, int length, boolean sign) {
+    public static int wordsToLengthNumber(String string, int length, boolean sign) {
         String[] words = string.split("[ ,]");
         int count = 0;
         for (int i = 0; i < words.length; i++) {
