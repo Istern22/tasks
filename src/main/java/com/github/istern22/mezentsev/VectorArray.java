@@ -329,7 +329,6 @@ public class VectorArray {
                 maxNegative = abs(array[i]);
             }
         }
-        int result = maxPositive > maxNegative ? maxPositive : maxNegative;
-        return result;
+        return Math.max(maxPositive, maxNegative);
     }
 }
