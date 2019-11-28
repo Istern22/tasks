@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static com.github.istern22.mezentsev.Naturals.isPrimeNatural;
+import static java.lang.Math.abs;
 
 public class VectorArray {
 
@@ -228,5 +229,107 @@ public class VectorArray {
             }
         }
         return numbers;
+    }
+
+    /**
+     * Дан массив целых чисел.
+     * Написать программу проверки, упорядочены ли значения компонентов массива по неубыванию.
+     * @param array
+     * @return
+     */
+    public static boolean nonDecreasingCheck(int[] array) {
+        boolean result = true;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] > array[i]) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Дан массив целых чисел.
+     * Написать программу проверки, упорядочены ли значения компонентов массива по убыванию.
+     * @param array
+     * @return
+     */
+    public static boolean decreasingCheck(int[] array) {
+        boolean result = true;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] <= array[i]) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Дан массив целых чисел и целое число x. Значения компонентов массива упорядочены по неубыванию.
+     * Написать программу вычисления такого номера компонента массива i(если он существует), что ai <= x <= a(i + 1)
+     * @param array
+     * @return
+     */
+    public static int indexOfArray(int[] array, int x) {
+        int index = -1;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] <= x && x <= array[i + 1]) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    /**
+     * Дан массив целых чисел, целые c и d, c < d.
+     * Написать программу вычисления количества компонентов массива, значения которых принадлежать отрезку [c,d]
+     * @param array
+     * @param c
+     * @param d
+     * @return
+     */
+    public static int intFromGap(int[] array, int c, int d) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] >= c && array[i] <= d) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Дан массив целых чисел и число k (k > 0).
+     * Осуществить циклический сдвиг значений компонентов массива влево на k компонент.
+     * @param array
+     * @param k
+     * @return
+     */
+    public static int[] shift(int[] array, int k) {
+        for (int i = 0; i < k; i++) {
+            int temp = array[array.length - 1];
+            for (int j = array.length - 1; j > 0; j--) {
+                array[j] = array[j - 1];
+            }
+            array[0] = temp;
+        }
+       return array;
+    }
+
+    public static int whatIsGreater(int[] array) {
+        int maxPositive = 0;
+        int maxNegative = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > maxPositive) {
+                maxPositive = array[i];
+            }
+            if (array[i] < 0 && maxNegative < abs(array[i])) {
+                maxNegative = abs(array[i]);
+            }
+        }
+        int result = maxPositive > maxNegative ? maxPositive : maxNegative;
+        return result;
     }
 }

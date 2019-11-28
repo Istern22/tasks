@@ -125,4 +125,64 @@ public class VectorArrayTest {
     public void whenNumbersOfAveragesTwo() {
         assertThat(numbersBelowAverage(1, new double[] {0, 1, 2}), is(2));
     }
+
+    @Test
+    public void whenNonDecreasingCheck() {
+        assertThat(nonDecreasingCheck(new int[] {0, 1, 2, 4, 4}), is(true));
+    }
+
+    @Test
+    public void whenNonDecreasingCheckTwo() {
+        assertThat(nonDecreasingCheck(new int[] {0, 1, 2, 4, 4, 3}), is(false));
+    }
+
+    @Test
+    public void whenDecreasingCheck() {
+        assertThat(decreasingCheck(new int[] {4, 3, 2, 1, 1}), is(false));
+    }
+
+    @Test
+    public void whenDecreasingCheckTwo() {
+        assertThat(decreasingCheck(new int[] {4, 2, 0}), is(true));
+    }
+
+    @Test
+    public void whenIndexOfArray() {
+        assertThat(indexOfArray(new int[] {0, 1, 2, 4, 4}, 4), is(2));
+    }
+
+    @Test
+    public void whenIndexOfArrayTwo() {
+        assertThat(indexOfArray(new int[] {4, 20, 30}, 25), is(1));
+    }
+
+    @Test
+    public void whenIntFromGap() {
+        assertThat(intFromGap(new int[] {0, 1, 2, 4, 4}, 4, 10), is(2));
+    }
+
+    @Test
+    public void whenIntFromGapTwo() {
+        assertThat(intFromGap(new int[] {4, 20, 30}, 1, 5), is(1));
+    }
+
+    @Test
+    public void whenShift() {
+        assertThat(shift(new int[] {0, 1, 2, 3}, 2), is(new int[] {2, 3, 0, 1}));
+    }
+
+    @Test
+    public void whenShiftTwo() {
+        assertThat(shift(new int[] {0, 5, 10, 15, 20}, 4), is(new int[] {5, 10, 15, 20, 0}));
+    }
+
+    @Test
+    public void whenWhatIsGreater() {
+        assertThat(whatIsGreater(new int[] {0, 1, 2, -3}), is(3));
+    }
+
+    @Test
+    public void whenWhatIsGreaterTwo() {
+        assertThat(whatIsGreater(new int[] {0, 5, -10, -15, 20}), is(20));
+    }
 }
