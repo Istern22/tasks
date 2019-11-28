@@ -121,4 +121,24 @@ public class StringsTest {
     public void whenWordsOfLengthLessNumberTwo() {
         assertThat(wordsToLengthNumber("go code fast immediately", 5, false), is(3));
     }
+
+    @Test
+    public void whenListOfWordsOfLengthMoreNumberTwo() {
+        assertThat(listOfWordsToLengthNumber("go code fast immediately", 1, true), is("[go, code, fast, immediately]"));
+    }
+
+    @Test
+    public void whenListOfWordsOfLengthLessNumberTwo() {
+        assertThat(listOfWordsToLengthNumber("go code fast immediately", 5, false), is("[go, code, fast]"));
+    }
+
+    @Test
+    public void whenNumberFirstCharEqualsLast() {
+        assertThat(numberFirstCharEqualsLast("ogo codec fast immediateli"), is(3));
+    }
+
+    @Test
+    public void whenWordsFirstCharEqualsLast() {
+        assertThat(wordsFirstCharEqualsLast("ogo codec fast immediately"), is("[ogo, codec]"));
+    }
 }

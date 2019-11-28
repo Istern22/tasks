@@ -125,7 +125,6 @@ public class Strings {
      * Дана строка символов. Слова в строке отделяются друг от друга пробелами или запятыми.
      * Посчитать кол-во слов, длина которых больше заданного числа.
      * Посчитать кол-во слов, длина которых меньше заданного числа.
-     *
      * @param string
      * @param length
      * @return
@@ -143,5 +142,65 @@ public class Strings {
             }
         }
         return count;
+    }
+
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга пробелами или запятыми.
+     * Вывести все слова, длина которых больше заданного числа.
+     * Вывести все слова, длина которых меньше заданного числа.
+     * @param string
+     * @param length
+     * @param sign
+     * @return
+     */
+    public static String listOfWordsToLengthNumber(String string, int length, boolean sign) {
+        ArrayList<String> result = new ArrayList<>();
+        String[] words = string.split("[ ,]");
+        for (int i = 0; i < words.length; i++) {
+            if (sign && words[i].length() > length) {
+                result.add(words[i]);
+            } else {
+                if (!sign && words[i].length() < length) {
+                    result.add(words[i]);
+                }
+            }
+        }
+        return result.toString();
+    }
+
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга пробелами или запятыми.
+     * Посчитать кол-во слов начинающихся и заканчивающихся одной буквой.
+     * @param string
+     * @return
+     */
+    public static int numberFirstCharEqualsLast(String string) {
+        String[] words = string.split("[ ,]");
+        int count = 0;
+        for (int i = 0; i < words.length; i++) {
+            char[] word = words[i].toCharArray();
+            if (word[0] == word[word.length - 1]) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Дана строка символов. Слова в строке отделяются друг от друга пробелами или запятыми.
+     * Вывести слова, начинающихся и заканчивающихся одной буквой.
+     * @param string
+     * @return
+     */
+    public static String wordsFirstCharEqualsLast(String string) {
+        ArrayList<String> result = new ArrayList<>();
+        String[] words = string.split("[ ,]");
+        for (int i = 0; i < words.length; i++) {
+            char[] word = words[i].toCharArray();
+            if (word[0] == word[word.length - 1]) {
+                result.add(words[i]);
+            }
+        }
+        return result.toString();
     }
 }
