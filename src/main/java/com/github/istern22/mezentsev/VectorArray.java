@@ -318,6 +318,14 @@ public class VectorArray {
        return array;
     }
 
+    /**
+     * Дан массив целых чисел и число k (k > 0).
+     * Написать программу определения что больше, наименьший среди компонентов
+     * с положительными значениями, или модуль наибольшего среди компонентов
+     * с отрицательными значениями.
+     * @param array
+     * @return
+     */
     public static int whatIsGreater(int[] array) {
         int maxPositive = 0;
         int maxNegative = 0;

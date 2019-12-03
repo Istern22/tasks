@@ -107,6 +107,12 @@ public class Matrix {
         return result;
     }
 
+    /**
+     * Дана целочисленная квадратная матрица.
+     * Проверить, является ли она латинским квадратом.
+     * @param array
+     * @return
+     */
     public static boolean latinMatrix(int[][] array) {
         boolean result = true;
         for (int i = 0; i < array.length; i++) {
@@ -120,5 +126,119 @@ public class Matrix {
             }
         }
         return result;
+    }
+
+    /**
+     * Дана целочисленная квадратная матрица. Написать программу,
+     * вычисляющую наименьшее значение среди компонентов матрицы
+     * расположенных ниже главной диагонали.
+     * @param array
+     * @return
+     */
+    public static int minUnderMainDiagonal(int[][] array) {
+        int min = array[1][0];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i > j && array[i][j] < min) {
+                    min = array[i][j];
+                }
+            }
+        }
+        return min;
+    }
+
+    /**
+     * Дана целочисленная квадратная матрица. Написать программу,
+     * вычисляющую наименьшее значение среди компонентов матрицы
+     * расположенных выше главной диагонали.
+     * @param array
+     * @return
+     */
+    public static int minAboveMainDiagonal(int[][] array) {
+        int min = array[0][1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i < j && array[i][j] < min) {
+                    min = array[i][j];
+                }
+            }
+        }
+        return min;
+    }
+
+    /**
+     * Дана целочисленная квадратная матрица. Написать программу,
+     * вычисляющую наибольшее значение среди компонентов матрицы
+     * расположенных ниже главной диагонали.
+     * @param array
+     * @return
+     */
+    public static int maxUnderMainDiagonal(int[][] array) {
+        int max = array[1][0];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i > j && array[i][j] > max) {
+                    max = array[i][j];
+                }
+            }
+        }
+        return max;
+    }
+
+    /**
+     * Дана целочисленная квадратная матрица. Написать программу,
+     * вычисляющую наибольшее значение среди компонентов матрицы
+     * расположенных выше главной диагонали.
+     * @param array
+     * @return
+     */
+    public static int maxAboveMainDiagonal(int[][] array) {
+        int max = array[0][1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i < j && array[i][j] > max) {
+                    max = array[i][j];
+                }
+            }
+        }
+        return max;
+    }
+
+    /**
+     * Дана целочисленная квадратная матрица. Написать программу,
+     * вычисляющую наименьшее значение среди компонентов матрицы
+     * расположенных выше главной и выше побочной диагонали.
+     * @param array
+     * @return
+     */
+    public static int minAboveMainAndSideDiagonal(int[][] array) {
+        int min = array[0][1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i < j && i < array.length - 1 - i && min > array[i][j]) {
+                    min = array[i][j];
+                }
+            }
+        }
+        return min;
+    }
+
+    /**
+     * Дана целочисленная квадратная матрица. Написать программу,
+     * вычисляющую наименьшее значение среди компонентов матрицы
+     * расположенных выше главной и ниже побочной диагонали.
+     * @param array
+     * @return
+     */
+    public static int minAboveMainAndUnderSideDiagonal(int[][] array) {
+        int min = array[array.length - 2][array.length - 1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i < j && j > array.length - 1 - i && min > array[i][j]) {
+                    min = array[i][j];
+                }
+            }
+        }
+        return min;
     }
 }
