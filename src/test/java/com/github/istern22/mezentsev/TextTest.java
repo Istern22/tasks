@@ -12,14 +12,11 @@ import static org.junit.Assert.assertThat;
 
 public class TextTest {
     public final String text =
-            "Леденящая кровь опера Джузеппе Верди «Макбет» по одноимённой трагедии \\n"
-            + "Уильяма Шекспира вновь на Приморской сцене Мариинского театра. \\n"
-            + "Спектакль о смерти и предательстве колдовстве и сумасшествии в атмосферной \\n"
-            + "исторической постановке крупнейшего шотландского режиссёра Дэвида Маквикара.";
+            "Сжалился волк. Пустил лису. Первую ночь лиса на приступочке спала. На вторую забралась в избу. А на третью на печи развалилась.";
 
     @Test
     public void whenFunction1() {
-        List<String> expected = new ArrayList<>(Arrays.asList("опера", "Уильяма"));
-        assertThat(function1(text), is(new ArrayList<>()));
+        List<String> expected = new ArrayList<>(Arrays.asList("лису", "Первую", "лиса", "На", "вторую", "избу", "А", "на", "на", "печи"));
+        assertThat(function1(text), is(expected));
     }
 }
