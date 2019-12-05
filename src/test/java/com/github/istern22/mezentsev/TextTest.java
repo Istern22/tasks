@@ -16,7 +16,7 @@ public class TextTest {
 
     @Test
     public void whenFunction1() {
-        List<String> expected = new ArrayList<>(Arrays.asList("лису", "Первую", "лиса", "На", "вторую", "избу", "А", "на", "на", "печи"));
+        List<String> expected = new ArrayList<>(Arrays.asList("лису", "Первую", "лиса", "на", "На", "вторую", "избу", "А", "на", "на", "печи"));
         assertThat(function1(text), is(expected));
     }
 }
