@@ -75,4 +75,10 @@ public class TextTest {
         List<String> expected = new ArrayList<>(Arrays.asList("на", "На", "в", "А", "на", "на"));
         assertThat(function10(text, 3), is(expected));
     }
+
+    @Test
+    public void whenFunction11() {
+        List<String> expected = new ArrayList<>(Arrays.asList("Первую", "вторую"));
+        assertThat(function11(text, "ую"), is(expected));
+    }
 }

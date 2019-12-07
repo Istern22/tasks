@@ -4,10 +4,10 @@ import java.util.*;
 
 public class Text {
 
-    public final static Character[] vowels = {'а', 'о', 'и', 'е', 'э', 'ы', 'у', 'ю', 'я'};
-    public final static Character[] consonants = {'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ'};
-    public final static HashSet<Character> vowelsHash = new HashSet<>(Arrays.asList(vowels));
-    public final static HashSet<Character> consonantsHash = new HashSet<>(Arrays.asList(consonants));
+    public final static Character[] VOWELS = {'а', 'о', 'и', 'е', 'э', 'ы', 'у', 'ю', 'я'};
+    public final static Character[] CONSONANTS = {'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ'};
+    public final static HashSet<Character> VOWELS_HASH = new HashSet<>(Arrays.asList(VOWELS));
+    public final static HashSet<Character> CONSONANTS_HASH = new HashSet<>(Arrays.asList(CONSONANTS));
 
     /**
      * В текстовом окне задан многострочный текст. Слова отделяются друг от друга пробелами.
@@ -26,10 +26,10 @@ public class Text {
             for (int j = 0; j < word.length; j++) {
                 if (word[j] != ' ') {
                     Character x = Character.toLowerCase(word[j]);
-                    if (vowelsHash.contains(x)) {
+                    if (VOWELS_HASH.contains(x)) {
                         countVowels++;
-                    } else if (consonantsHash.contains(x)) {
-                            countConsonants++;
+                    } else if (CONSONANTS_HASH.contains(x)) {
+                        countConsonants++;
                     }
                 }
             }
@@ -55,9 +55,9 @@ public class Text {
             for (int j = 0; j < word.length; j++) {
                 if (word[j] != ' ') {
                     Character x = Character.toLowerCase(word[j]);
-                    if (vowelsHash.contains(x)) {
+                    if (VOWELS_HASH.contains(x)) {
                         countVowels++;
-                    } else if (consonantsHash.contains(x)) {
+                    } else if (CONSONANTS_HASH.contains(x)) {
                         countConsonants++;
                     }
                 }
@@ -116,7 +116,7 @@ public class Text {
         for (int i = 0; i < words.length; i++) {
             char[] word = words[i].toCharArray();
             for (int j = 0; j < word.length - 1; j++) {
-                if (word[j] != ' ' && vowelsHash.contains(word[j]) && word[j] == word[j + 1]) {
+                if (word[j] != ' ' && VOWELS_HASH.contains(word[j]) && word[j] == word[j + 1]) {
                     result.add(words[i]);
                     break;
                 }
@@ -180,7 +180,7 @@ public class Text {
         for (int i = 0; i < words.length; i++) {
             char[] word = words[i].toCharArray();
             for (int j = 0; j < word.length - 1; j++) {
-                if (word[j] != ' ' && consonantsHash.contains(word[j]) && word[j] == word[j + 1]) {
+                if (word[j] != ' ' && CONSONANTS_HASH.contains(word[j]) && word[j] == word[j + 1]) {
                     result.add(words[i]);
                     break;
                 }
@@ -216,7 +216,24 @@ public class Text {
         List<String> result = new ArrayList<>();
         String[] words = text.split("[ .]");
         for (int i = 0; i < words.length; i++) {
-            if (words[i].length() != 0 && words[i].length() < number ) {
+            if (words[i].length() != 0 && words[i].length() < number) {
+                result.add(words[i]);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Последовательно выделять слова содержащую заданную подстроку.
+     * @param text
+     * @param subString
+     * @return
+     */
+    public static List<String> function11(String text, String subString) {
+        List<String> result = new ArrayList<>();
+        String[] words = text.split("[ .]");
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].contains(subString)) {
                 result.add(words[i]);
             }
         }
