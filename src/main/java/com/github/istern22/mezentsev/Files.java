@@ -18,7 +18,7 @@ public class Files {
      * @throws IOException
      */
     public static void write(int[] numbers)throws IOException {
-        File file = new File("C:\\Users\\Istern22\\test.txt");
+        File file = new File("C:\\Users\\Admin_10\\test.txt");
         file.createNewFile();
         FileWriter writer = new FileWriter(file);
         for (int i = 0; i < numbers.length; i++) {
@@ -29,7 +29,7 @@ public class Files {
     }
 
     public static void write(int number)throws IOException {
-        File file = new File("C:\\Users\\Istern22\\test.txt");
+        File file = new File("C:\\Users\\Admin_10\\test.txt");
         file.createNewFile();
         FileWriter writer = new FileWriter(file);
         writer.write(Integer.toString(number));
@@ -37,7 +37,7 @@ public class Files {
     }
 
     public static void write(double number)throws IOException {
-        File file = new File("C:\\Users\\Istern22\\test.txt");
+        File file = new File("C:\\Users\\Admin_10\\test.txt");
         file.createNewFile();
         FileWriter writer = new FileWriter(file);
         writer.write(Double.toString(number));
@@ -45,7 +45,7 @@ public class Files {
     }
 
     public static int[] read()throws IOException {
-        File file = new File("C:\\Users\\Istern22\\test.txt");
+        File file = new File("C:\\Users\\Admin_10\\test.txt");
         FileReader reader = new FileReader(file);
         Scanner scanner = new Scanner(reader);
         String result = "";
@@ -61,7 +61,7 @@ public class Files {
     }
 
     public static int readInt()throws IOException {
-        File file = new File("C:\\Users\\Istern22\\test.txt");
+        File file = new File("C:\\Users\\Admin_10\\test.txt");
         FileReader reader = new FileReader(file);
         Scanner scanner = new Scanner(reader);
         String result = "";
@@ -72,7 +72,7 @@ public class Files {
     }
 
     public static Double readDouble()throws IOException {
-        File file = new File("C:\\Users\\Istern22\\test.txt");
+        File file = new File("C:\\Users\\Admin_10\\test.txt");
         FileReader reader = new FileReader(file);
         Scanner scanner = new Scanner(reader);
         String result = "";
@@ -171,7 +171,7 @@ public class Files {
      * @throws IOException
      */
     public static void numbersOfRange(int[] numbers, int a, int b) throws IOException {
-        write(Arrays.stream(numbers).filter(x -> x > a && x < b).count());
+        write(Arrays.stream(numbers).filter(x -> x > a && x < b).toArray().length);
     }
 
     /**
@@ -182,7 +182,7 @@ public class Files {
      * @throws IOException
      */
     public static void numbersNotOfRange(int[] numbers, int a, int b) throws IOException {
-        write(Arrays.stream(numbers).filter(x -> x < a || x > b).count());
+        write(Arrays.stream(numbers).filter(x -> x < a || x > b).toArray().length);
     }
 
     /**
