@@ -2,7 +2,9 @@ package com.github.istern22.mezentsev;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,15 +26,26 @@ public class Collection {
      * 3. Вывести результаты запроса
      */
 
-   /** public static List<Student> read() throws IOException {
-        File file = new File("C:\\Users\\Admin_10\\test2.txt");
-        FileReader reader = new FileReader(file);
-        Scanner scanner = new Scanner(reader);
-        String result = "";
-        while (scanner.hasNext()) {
-            result = result + scanner.next() + " ";
+    public static void write(ArrayList<Student> students)throws IOException {
+        var file = new File("C:\\Users\\Admin_10\\test2.rtf");
+        file.createNewFile();
+        var writer = new FileWriter(file);
+        for (var student : students) {
+            writer.write(student.toString() + "\n");
         }
-        String[] resultString = result.split(" ");
+        writer.close();
+    }
+
+    /**public static List<Student> read() throws IOException {
+        var file = new File("C:\\Users\\Admin_10\\test2.txt");
+        var reader = new FileReader(file);
+        var scanner = new Scanner(reader);
+        var result = new ArrayList<Student>();
+        var result2 = "";
+        while (scanner.hasNext()) {
+            result2 = result2 + scanner.next();
+        }
+        String[] resultString = result2.split(" ");
         int[] resultInt = new int[resultString.length];
         for (int i = 0; i < resultString.length; i++) {
             resultInt[i] = Integer.parseInt(resultString[i]);
