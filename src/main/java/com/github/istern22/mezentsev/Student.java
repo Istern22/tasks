@@ -44,6 +44,30 @@ public class Student {
         return grades;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setGrades(int[] grades) {
+        this.grades = grades;
+    }
+
     public boolean equals(Object o) {
         if (this == o) {
             return true;

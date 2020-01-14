@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,21 +37,38 @@ public class Collection {
         writer.close();
     }
 
-    /**public static List<Student> read() throws IOException {
-        var file = new File("C:\\Users\\Admin_10\\test2.txt");
+    public static List<Student> read() throws IOException {
+        var file = new File("C:\\Users\\Admin_10\\test2.rtf");
         var reader = new FileReader(file);
         var scanner = new Scanner(reader);
-        var result = new ArrayList<Student>();
-        var result2 = "";
-        while (scanner.hasNext()) {
-            result2 = result2 + scanner.next();
+        var resultString = new ArrayList<String>();
+        while (scanner.hasNextLine()) {
+            resultString.add(scanner.nextLine());
         }
-        String[] resultString = result2.split(" ");
-        int[] resultInt = new int[resultString.length];
-        for (int i = 0; i < resultString.length; i++) {
-            resultInt[i] = Integer.parseInt(resultString[i]);
+        var students = new ArrayList<Student>();
+        for (var string: resultString) {
+            String[] data = string.split(" ");
+            var resultStudent = new Student("", "", "", 0, "", new int[] {0});
+            for (int i = 0; i < data.length; i++) {
+                resultStudent.setName(data[0]);
+                resultStudent.setSurname(data[1]);
+                resultStudent.setPatronymic(data[2]);
+                resultStudent.setBirthYear(Integer.parseInt(data[3]));
+                resultStudent.setGender(data[4]);
+                var arrayInt = "";
+                for (int j = 5; j < data.length; j++) {
+                    arrayInt = arrayInt + data[j];
+                }
+                resultStudent.setGrades(Arrays.stream(arrayInt.substring(1, arrayInt.length() - 1).split(","))
+                        .mapToInt(Integer::parseInt).toArray());
+            }
+            students.add(resultStudent);
         }
-        return null;
+        return students;
+    }
+
+    /**public static String olderStudent() throws IOException {
+        return read().stream().min((p1, p2) -> p1.getBirthYear().compareTo(p2.getBirthYear())).ifPresent().get() ;
     }*/
 
 }

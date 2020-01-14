@@ -17,7 +17,7 @@ public class CollectionTest {
     public static ArrayList<Student> students = new ArrayList<Student>(Arrays.asList(
             new Student("Ivan", "Ivanov", "Ivanovich", 1992, "man", new int[] {5, 5, 3}),
             new Student("Vasili", "Petrov", "Ivanovich", 1980, "man", new int[] {4, 5, 3, 2, 3}),
-            new Student("Anna", "Ivanova", "Evgenevna", 1998, "woman", new int[] {3, 3, 3}),
+            new Student("Anna", "Ivanova", "Evgenevna", 1980, "woman", new int[] {3, 3, 3}),
             new Student("Kot", "Kotov", "Kotovich", 1985, "man", new int[] {5, 5, 5, 5}),
             new Student("Fox", "Foxov", "Foxovich", 1992, "man", new int[] {5, 5, 3}),
             new Student("Lambda", "Lambdova", "Lambdovna", 1998, "woman", new int[] {2, 5, 3, 2}),
@@ -27,10 +27,21 @@ public class CollectionTest {
             new Student("Bugor", "Bugorov", "Bugorovich", 2000, "man", new int[] {5, 5, 3, 3, 2}),
             new Student("Fix", "Fixova", "Fixovna", 2002, "woman", new int[] {1, 2, 3})
     ));
+
     @Test
     public void whenWriteIntoFile() throws IOException {
-        /**write(students);
-        assertThat(read(), is(students));*/
+        write(students);
+        assertThat(read(), is(students));
     }
+
+    /**@Test
+    public void whenOldStudent() throws IOException {
+        assertThat(olderStudent(), is("Vasili Petrov Ivanovich 1980 man [4, 5, 3, 2, 3]"));
+    }
+
+    @Test
+    public void whenOldStudent() throws IOException {
+        assertThat(olderStudent(), is("Vasili Petrov Ivanovich 1980 man [4, 5, 3, 2, 3]"));
+    }*/
 
 }
