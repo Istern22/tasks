@@ -4,10 +4,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Collection {
 
@@ -67,8 +66,90 @@ public class Collection {
         return students;
     }
 
-    /**public static String olderStudent() throws IOException {
-        return read().stream().min((p1, p2) -> p1.getBirthYear().compareTo(p2.getBirthYear())).ifPresent().get() ;
+    /**
+     * Вывести информацию о самом старшем студнете.
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> olderStudentMan() throws IOException {
+        int oldestBirthYear = read()
+                .stream()
+                .filter(student -> student.getGender().equals("man"))
+                .min(Comparator.comparing(Student::getBirthYear))
+                .get()
+                .getBirthYear();
+        return read()
+                .stream()
+                .filter((student) -> student.getBirthYear() == oldestBirthYear && student.getGender().equals("man"))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Вывести информацию о самом молодом студнете.
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> youngerStudentMan() throws IOException {
+        int youngestBirthYear = read()
+                .stream()
+                .filter(student -> student.getGender().equals("man"))
+                .max(Comparator.comparing(Student::getBirthYear))
+                .get()
+                .getBirthYear();
+        return read()
+                .stream()
+                .filter((student) -> student.getBirthYear() == youngestBirthYear && student.getGender().equals("man"))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Вывести информацию о самой старшей студентке.
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> olderStudentWoman() throws IOException {
+        int oldestBirthYear = read()
+                .stream()
+                .filter(student -> student.getGender().equals("woman"))
+                .min(Comparator.comparing(Student::getBirthYear))
+                .get()
+                .getBirthYear();
+        return read()
+                .stream()
+                .filter((student) -> student.getBirthYear() == oldestBirthYear && student.getGender().equals("woman"))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Вывести информацию о самой молодой студентке.
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> youngerStudentWoman() throws IOException {
+        int youngestBirthYear = read()
+                .stream()
+                .filter(student -> student.getGender().equals("woman"))
+                .max(Comparator.comparing(Student::getBirthYear))
+                .get()
+                .getBirthYear();
+        return read()
+                .stream()
+                .filter((student) -> student.getBirthYear() == youngestBirthYear && student.getGender().equals("woman"))
+                .collect(Collectors.toList());
+    }
+
+    /**public static List<Student> mostSuccessfulStudentMan() throws IOException {
+        return read()
+                .stream()
+                .filter(student -> student.getGender().equals("man"))
+                .map(student -> Arrays.stream(student.getGrades())
+                        .average()
+                        .stream()
+                        .max()
+                        .ifPresent()
+                .get());
     }*/
+
+
 
 }

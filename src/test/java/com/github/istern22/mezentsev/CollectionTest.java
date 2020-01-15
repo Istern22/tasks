@@ -34,14 +34,39 @@ public class CollectionTest {
         assertThat(read(), is(students));
     }
 
-    /**@Test
-    public void whenOldStudent() throws IOException {
-        assertThat(olderStudent(), is("Vasili Petrov Ivanovich 1980 man [4, 5, 3, 2, 3]"));
+    @Test
+    public void whenOldStudentMan() throws IOException {
+        assertThat(olderStudentMan(), is(List.of(
+                new Student("Vasili", "Petrov", "Ivanovich", 1980, "man", new int[] {4, 5, 3, 2, 3})
+        )));
     }
 
     @Test
-    public void whenOldStudent() throws IOException {
-        assertThat(olderStudent(), is("Vasili Petrov Ivanovich 1980 man [4, 5, 3, 2, 3]"));
-    }*/
+    public void whenYoungStudentMan() throws IOException {
+        assertThat(youngerStudentMan(), is(List.of(
+                new Student("Mak", "Makov", "Makovich", 2000, "man", new int[] {5, 5, 3, 4}),
+                new Student("Bugor", "Bugorov", "Bugorovich", 2000, "man", new int[] {5, 5, 3, 3, 2})
+        )));
+    }
 
+    @Test
+    public void whenOldStudentWoman() throws IOException {
+        assertThat(olderStudentWoman(), is(List.of(
+                new Student("Anna", "Ivanova", "Evgenevna", 1980, "woman", new int[] {3, 3, 3})
+        )));
+    }
+
+    @Test
+    public void whenYoungStudentWoman() throws IOException {
+        assertThat(youngerStudentWoman(), is(List.of(
+                new Student("Fix", "Fixova", "Fixovna", 2002, "woman", new int[] {1, 2, 3})
+        )));
+    }
+
+    /**@Test
+    public void whenMostSuccessfulStudentMan() throws IOException {
+        assertThat(mostSuccessfulStudentMan(), is(List.of(
+                new Student("Fix", "Fixova", "Fixovna", 2002, "woman", new int[] {1, 2, 3})
+        )));
+    }*/
 }
