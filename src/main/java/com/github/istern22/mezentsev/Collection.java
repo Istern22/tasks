@@ -27,7 +27,7 @@ public class Collection {
      */
 
     public static void write(ArrayList<Student> students)throws IOException {
-        var file = new File("C:\\Users\\Admin_10\\test2.rtf");
+        var file = new File("C:\\Users\\Istern22\\test2.rtf");
         file.createNewFile();
         var writer = new FileWriter(file);
         for (var student : students) {
@@ -37,7 +37,7 @@ public class Collection {
     }
 
     public static List<Student> read() throws IOException {
-        var file = new File("C:\\Users\\Admin_10\\test2.rtf");
+        var file = new File("C:\\Users\\Istern22\\test2.rtf");
         var reader = new FileReader(file);
         var scanner = new Scanner(reader);
         var resultString = new ArrayList<String>();
@@ -72,13 +72,14 @@ public class Collection {
      * @throws IOException
      */
     public static List<Student> olderStudentMan() throws IOException {
-        int oldestBirthYear = read()
+        List<Student> students = read();
+        int oldestBirthYear = students
                 .stream()
                 .filter(student -> student.getGender().equals("man"))
                 .min(Comparator.comparing(Student::getBirthYear))
                 .get()
                 .getBirthYear();
-        return read()
+        return students
                 .stream()
                 .filter((student) -> student.getBirthYear() == oldestBirthYear && student.getGender().equals("man"))
                 .collect(Collectors.toList());
@@ -138,17 +139,142 @@ public class Collection {
                 .collect(Collectors.toList());
     }
 
-    /**public static List<Student> mostSuccessfulStudentMan() throws IOException {
-        return read()
+    /**
+     * Вывести информацию о самом успевающем студенте
+     * @return
+     * @throws IOException
+     */
+    public static Student mostSuccessfulStudentMan() throws IOException {
+        Map<Student, OptionalDouble> average = read()
                 .stream()
                 .filter(student -> student.getGender().equals("man"))
-                .map(student -> Arrays.stream(student.getGrades())
-                        .average()
-                        .stream()
-                        .max()
-                        .ifPresent()
-                .get());
-    }*/
+                .collect(Collectors.toMap(student -> student, student -> Arrays.stream(student.getGrades()).average()));
+        Student student = average.keySet().stream().max(
+                Comparator.comparingDouble(s -> average.getOrDefault(s, OptionalDouble.of(0.0)).getAsDouble())
+                ).get();
+
+        return student;
+    }
+
+    /**
+     * Вывести информацию о самом неуспевающем студенте
+     * @return
+     * @throws IOException
+     */
+    public static Student mostUnsuccessfulStudentMan() throws IOException {
+        Map<Student, OptionalDouble> average = read()
+                .stream()
+                .filter(student -> student.getGender().equals("man"))
+                .collect(Collectors.toMap(student -> student, student -> Arrays.stream(student.getGrades()).average()));
+        Student student = average.keySet().stream().min(
+                Comparator.comparingDouble(s -> average.getOrDefault(s, OptionalDouble.of(0.0)).getAsDouble())
+        ).get();
+
+        return student;
+    }
+
+    /**
+     * Вывести информацию о самой успевающей студентке
+     * @return
+     * @throws IOException
+     */
+    public static Student mostSuccessfulStudentWoman() throws IOException {
+        Map<Student, OptionalDouble> average = read()
+                .stream()
+                .filter(student -> student.getGender().equals("woman"))
+                .collect(Collectors.toMap(student -> student, student -> Arrays.stream(student.getGrades()).average()));
+        Student student = average.keySet().stream().max(
+                Comparator.comparingDouble(s -> average.getOrDefault(s, OptionalDouble.of(0.0)).getAsDouble())
+        ).get();
+
+        return student;
+    }
+
+    /**
+     * Вывести информацию о самом неуспевающей студентке
+     * @return
+     * @throws IOException
+     */
+    public static Student mostUnsuccessfulStudentWoman() throws IOException {
+        Map<Student, OptionalDouble> average = read()
+                .stream()
+                .filter(student -> student.getGender().equals("woman"))
+                .collect(Collectors.toMap(student -> student, student -> Arrays.stream(student.getGrades()).average()));
+        Student student = average.keySet().stream().min(
+                Comparator.comparingDouble(s -> average.getOrDefault(s, OptionalDouble.of(0.0)).getAsDouble())
+        ).get();
+
+        return student;
+    }
+
+    /**
+     * Вывести список студенток, получающих стипендию
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> scholarshipWoman() throws IOException {
+        return read()
+                .stream()
+                .filter(student ->
+                        student.getGender().equals("woman")
+                                && Arrays.stream(student.getGrades()).allMatch(x -> x >= 4))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Вывести список студенток, не получающих стипендию
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> noScholarshipMan() throws IOException {
+        return read()
+                .stream()
+                .filter(student ->
+                        student.getGender().equals("man")
+                                && Arrays.stream(student.getGrades()).anyMatch(x -> x < 4))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Вывести список студентов, получающих стипендию
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> scholarshipMan() throws IOException {
+        return read()
+                .stream()
+                .filter(student ->
+                        student.getGender().equals("man")
+                                && Arrays.stream(student.getGrades()).allMatch(x -> x >= 4))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Вывести список студентов, не получающих стипендию
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> noScholarshipWoman() throws IOException {
+        return read()
+                .stream()
+                .filter(student ->
+                        student.getGender().equals("woman")
+                                && Arrays.stream(student.getGrades()).anyMatch(x -> x < 4))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Вывести список студентов-отличников
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> excellentStudent() throws IOException {
+        return read()
+                .stream()
+                .filter(student -> Arrays.stream(student.getGrades()).allMatch(x -> x == 5))
+                .collect(Collectors.toList());
+    }
+
 
 
 

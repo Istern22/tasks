@@ -7,11 +7,11 @@ public class Student {
     private String name;
     private String surname;
     private String patronymic;
-    private int birthYear;
+    private Integer birthYear;
     private String gender;
     private int[] grades;
 
-    public Student(String name, String surname, String patronymic, int birthYear, String gender, int[] grades) {
+    public Student(String name, String surname, String patronymic, Integer birthYear, String gender, int[] grades) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
@@ -32,7 +32,7 @@ public class Student {
         return patronymic;
     }
 
-    public int getBirthYear() {
+    public Integer getBirthYear() {
         return birthYear;
     }
 
