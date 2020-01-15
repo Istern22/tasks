@@ -56,12 +56,12 @@ public class CollectionTest {
         )));
     }
 
-    @Test
+    /**@Test
     public void whenYoungStudentWoman() throws IOException {
         assertThat(youngerStudentWoman(), is(List.of(
                 new Student("Fix", "Fixova", "Fixovna", 2002, "woman", new int[] {1, 2, 3})
         )));
-    }
+    }*/
 
     @Test
     public void whenMostSuccessfulStudentMan() throws IOException {
