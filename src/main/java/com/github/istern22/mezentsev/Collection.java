@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -66,79 +67,55 @@ public class Collection {
         return students;
     }
 
-    /**
-     * Вывести информацию о самом старшем студнете.
-     * @return
-     * @throws IOException
-     */
-    public static List<Student> olderStudentMan() throws IOException {
+    public static List<Student> ageGender(String gender, BinaryOperator<Student> howTo) throws IOException {
         List<Student> students = read();
         int oldestBirthYear = students
                 .stream()
-                .filter(student -> student.getGender().equals("man"))
-                .min(Comparator.comparing(Student::getBirthYear))
+                .filter(student -> student.getGender().equals(gender))
+                .reduce(howTo)
                 .get()
                 .getBirthYear();
         return students
                 .stream()
-                .filter((student) -> student.getBirthYear() == oldestBirthYear && student.getGender().equals("man"))
+                .filter((student) -> student.getBirthYear() == oldestBirthYear && student.getGender().equals(gender))
                 .collect(Collectors.toList());
     }
 
     /**
-     * Вывести информацию о самом молодом студнете.
+     * Вывести информацию о самом старшем студенте
+     * @return
+     * @throws IOException
+     */
+    public static List<Student> olderStudentMan() throws IOException {
+        return ageGender("man",  (f, s) -> f.getBirthYear().compareTo(s.getBirthYear()) <= 0 ? f : s);
+    }
+
+    /**
+     * Вывести информацию о самом младшем студенте
      * @return
      * @throws IOException
      */
     public static List<Student> youngerStudentMan() throws IOException {
-        int youngestBirthYear = read()
-                .stream()
-                .filter(student -> student.getGender().equals("man"))
-                .max(Comparator.comparing(Student::getBirthYear))
-                .get()
-                .getBirthYear();
-        return read()
-                .stream()
-                .filter((student) -> student.getBirthYear() == youngestBirthYear && student.getGender().equals("man"))
-                .collect(Collectors.toList());
+        return ageGender("man",  (f, s) -> f.getBirthYear().compareTo(s.getBirthYear()) >= 0 ? f : s);
     }
 
     /**
-     * Вывести информацию о самой старшей студентке.
+     * Вывести информацию о самой старшей студентке
      * @return
      * @throws IOException
      */
     public static List<Student> olderStudentWoman() throws IOException {
-        int oldestBirthYear = read()
-                .stream()
-                .filter(student -> student.getGender().equals("woman"))
-                .min(Comparator.comparing(Student::getBirthYear))
-                .get()
-                .getBirthYear();
-        return read()
-                .stream()
-                .filter((student) -> student.getBirthYear() == oldestBirthYear && student.getGender().equals("woman"))
-                .collect(Collectors.toList());
+        return ageGender("woman",  (f, s) -> f.getBirthYear().compareTo(s.getBirthYear()) <= 0 ? f : s);
     }
 
     /**
-     * Вывести информацию о самой молодой студентке.
+     * Вывести информацию о самой младшей студентке
      * @return
      * @throws IOException
      */
     public static List<Student> youngerStudentWoman() throws IOException {
-        int youngestBirthYear = read()
-                .stream()
-                .filter(student -> student.getGender().equals("woman"))
-                .max(Comparator.comparing(Student::getBirthYear))
-                .get()
-                .getBirthYear();
-        return read()
-                .stream()
-                .filter((student) -> student.getBirthYear() == youngestBirthYear && student.getGender().equals("woman"))
-                .collect(Collectors.toList());
+        return ageGender("woman",  (f, s) -> f.getBirthYear().compareTo(s.getBirthYear()) >= 0 ? f : s);
     }
-
     /**
      * Вывести информацию о самом успевающем студенте
      * @return
