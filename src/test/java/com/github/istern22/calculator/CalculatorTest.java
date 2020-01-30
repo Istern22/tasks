@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
 public class CalculatorTest {
 
     @Test
-    public void whenGetNumbersOne() {
+    public void whenGetString() {
+        assertThat(Calculator.getPos("(8+2*5)/(1+3*2-4)"), is("825*+132*+4-/"));
     }
 }
