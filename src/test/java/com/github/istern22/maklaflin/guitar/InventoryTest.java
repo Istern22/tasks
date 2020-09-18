@@ -1,4 +1,4 @@
-package com.github.istern22.maklaflin;
+package com.github.istern22.maklaflin.guitar;
 
 import com.github.istern22.maklaflin.guitar.*;
 
