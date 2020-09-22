@@ -5,9 +5,18 @@ import java.util.TimerTask;
 
 public class DogDoor {
     private boolean open;
+    private Bark allowed;
 
     public DogDoor() {
         this.open = false;
+    }
+
+    public Bark getAllowed() {
+        return allowed;
+    }
+
+    public void setAllowed(Bark allowed) {
+        this.allowed = allowed;
     }
 
     public void open() {
