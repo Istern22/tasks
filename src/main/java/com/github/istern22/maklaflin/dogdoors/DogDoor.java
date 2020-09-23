@@ -1,22 +1,24 @@
 package com.github.istern22.maklaflin.dogdoors;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class DogDoor {
     private boolean open;
-    private Bark allowed;
+    private ArrayList<Bark> allowed;
 
     public DogDoor() {
+        allowed = new ArrayList<>();
         this.open = false;
     }
 
-    public Bark getAllowed() {
+    public ArrayList<Bark> getAllowed() {
         return allowed;
     }
 
-    public void setAllowed(Bark allowed) {
-        this.allowed = allowed;
+    public void addAllowedBark(Bark bark) {
+        allowed.add(bark);
     }
 
     public void open() {

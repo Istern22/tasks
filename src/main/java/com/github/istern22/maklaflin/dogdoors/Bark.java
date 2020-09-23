@@ -18,7 +18,9 @@ public class Bark {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Bark bark = (Bark) o;
         return Objects.equals(sound, bark.sound);
     }
