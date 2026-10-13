@@ -2,3 +2,5 @@
 tg_session*
 *.session
 *.session-journal
+__pycache__/
+export/
